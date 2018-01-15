@@ -61,14 +61,7 @@ export default class Body extends Component<{}> {
     render() {
         return (
           <View style={styles.container}> 
-            <View style={{flex:1, flexDirection:'row'}}>
-                <Text style={styles.assistant}>
-                {str_welcome}
-                </Text>
-                <Text style={{fontSize:28,color:'#FF0000', marginLeft:5}}>
-                BG
-                </Text>
-            </View> 
+
             <Text style={styles.assistant}>
             {str_open}
             </Text>

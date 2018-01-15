@@ -18,7 +18,12 @@ import PropTypes from 'prop-types';
 const str_exit='Exits'
 const str_call='Call'
 const ear_icon = require('../assets/icons/ear1.png')
+const str_welcome ='Welcome to Big Fashion';
+
+
 export default class Tab extends Component<{}> {
+
+
     constructor(props) {
         super(props);
         this.state = {
@@ -45,11 +50,27 @@ export default class Tab extends Component<{}> {
           this.DRAWER.closeDrawer();
         }
       }
+      _positionDetect()
+      {
+
+      }
+      _positionDecide(){
+        _positionDetect();
+        if(isBigFashion == true){
+          return "Big Fashion-Main Gate";
+        }
+        if(isElevator == true){
+          return "Big Fashion: Elevator C3 "
+        }
+        if(isPark == true){
+          return "Park Harova"
+        }
+      }
       render() {
         const { navigate } = this.props.navigation;
         return (
           <View style={styles.container}>
-    
+
           <DrawerLayout
             drawerWidth={200}
             
@@ -78,6 +99,14 @@ export default class Tab extends Component<{}> {
                             },
                         ]}
                     />
+            <View style={{ flexDirection:'row', marginTop:10,marginLeft:40, marginRight:40}}>
+                <Text style={styles.assistant}>
+                {str_welcome}
+                </Text>
+                <Text style={{fontSize:28,color:'#FF0000', marginLeft:5}}>
+                BG
+                </Text>
+            </View> 
                 <Tabpage/>
 
 
@@ -102,6 +131,13 @@ const styles = StyleSheet.create({
       color: '#6600ff',
   
     },
+    assistant:{
+      lineHeight: 30,
+      flex: 1,
+      fontSize: 24,
+    
+
+  },
     instructions: {
       marginTop: 40,
       textAlign: 'center',
@@ -109,13 +145,7 @@ const styles = StyleSheet.create({
       marginBottom: 80,
       fontSize: 20,
     },
-    assistant:{
-      fontSize: 24,
-      marginTop:60,
-      marginLeft: 20,
-      marginRight: 20,
-  
-    },
+
     title:{
       textAlign: 'center',
       fontSize: 20,
